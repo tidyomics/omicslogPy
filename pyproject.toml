@@ -1,17 +1,17 @@
 [tool.poetry]
 name = "omicslog"
-version = "0.2.0"
+version = "0.1.0"
 description = "AnnData subclass that automatically logs mutations to .uns['_omicslog']"
 authors = ["Stefano Mangiola <stefano.mangiola@adelaide.edu.au>", "Juan Henao <juanhenao.sanchez@gmail.com>"]
-manteiners = ["Juan Henao <juanhenao.sanchez@gmail.com>"]
-license = "MIT"
+maintainers =["Juan Henao <juanhenao.sanchez@gmail.com>"]
+license = "BSD-3-Clause"
 readme = "README.md"
 homepage = "https://github.com/tidyomics/omicslog_dev"
 repository = "https://github.com/tidyomics/omicslog_dev"
 keywords = ["bioinformatics", "single-cell", "anndata", "logging"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: BSD License",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
@@ -19,8 +19,8 @@ packages = [{include = "omicslog", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.11"
-anndata = ">=0.10"
-numpy = "^2.0.0"
+anndata = ">=0.12.6"
+pandas = ">=3.1.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.0"
@@ -28,10 +28,16 @@ black = "^24.8.0"
 ipykernel = "^7.2.0"
 pytest = "^8.0.0"
 scipy = "^1.14.0"
+deptry = {version = "^0.25.1", python = ">=3.12,<4.0"}
+numpy = ">=2.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100

@@ -22,3 +22,7 @@ data/**/processed/
 .devcontainer/.env
 .env
 config/local.env
+
+# Output files
+*.h5ad
+*.zarr
